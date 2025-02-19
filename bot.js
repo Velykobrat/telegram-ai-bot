@@ -20,8 +20,8 @@ const leadSchema = new Schema({
   budget: String,
   timeline: String,
   techPreferences: String,
-  contact: String, // Додано поле для контакту
-  userContact: String // Додано поле для телефонного або email контакту
+  contact: String, 
+  userContact: String 
 });
 
 const Lead = model("Lead", leadSchema);
@@ -29,7 +29,7 @@ const Lead = model("Lead", leadSchema);
 // Воронка запитів
 const questions = [
   {
-    question: "Яка у вас задача?",
+    question: "Привіт! Я бот, який допоможе зібрати інформацію про ваш проєкт. Почнемо! Яка у вас задача?",
     options: ["Розробка сайту", "Розробка мобільного додатку", "Інше"],
     key: "task"
   },
@@ -199,7 +199,7 @@ const sendEmail = (lead) => {
 Термін: ${lead.timeline}
 Переваги: ${lead.techPreferences}
 Контакт: ${lead.contact}
-Контакт користувача: ${lead.userContact}` // Додано контакт користувача
+Контакт користувача: ${lead.userContact}` 
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
